@@ -1,0 +1,52 @@
+1- forEach() is an arrays method - 
+   we can access the item and the index 
+   but we can not use break or countinue
+
+   for...of is a way of looping in js 
+   we can accecc just an item of an array 
+   in every iteration
+_________________________________________________   
+
+2-    Hoisting : is a java script ingine behavior to prepare declarations before 
+      executing the code or " moving  declarations to the top of the scope 
+      TDZ: we can not use the variable before it`s decleration 
+      example : 1- var :
+      ============= 
+      console.log(x);    //undefined not  a referance error
+      var x=5;
+      =============
+      console.log(x);
+      let x=5;    // referance error because of TDZ
+      =============
+      greet();  // hello world because all af the function is moved to the top of the scope not only the name of it 
+      function greet(){
+         console.log(`hello world`);
+      }
+
+_________________________________________________
+3- == (compares only the values regardless of the data type )
+ex: console.log (5 == "5")   // true
+   === (compares both of the value & the data type  )
+ex: console.log (5 === "5")   // false 
+_________________________________________________
+4- 1- 
+try
+{
+   doSomeThing();
+}catch(error)
+{
+   handlingError(error);
+}
+the main advantage of try & catch is to prevent the programe from crashing 
+even if it is a run time error 
+_________________________________________________
+5- Type conversion : when i convert the data type of a varible 
+using a bulit in method like 
+console.log(Boolean( null ))   // false 
+console.log(Number( "5" ))   // 5
+
+  Type coercion : when the ingine convert the data type implicity
+  console.log("5" * 5)   // 25
+  _________________________________________________
+
+
