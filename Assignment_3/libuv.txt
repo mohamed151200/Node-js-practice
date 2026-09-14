@@ -1,0 +1,31 @@
+1- event loop is a mechanism in node that checks which call back is ready 
+and runs it on the main thread
+___________________________________________________________________________
+2- libuv is a cross platform written in c++ and js,
+ - js is a single thread language thus libuv let it to handel thousand of operations
+ -that runs the event loop , manages pool threads 
+   contact with  OS async. facilities
+___________________________________________________________________________
+3- a- the top level "sync code" is executed first
+   b- Async operations get registerd
+   c- event loop start executing operations in phases :
+       1- prosses.nextTick      (after every callback)
+       2- promises callbacks    (after every callback)
+       3- Timers                (setTimeOut-setInterval)
+       4- poll phase            (i/o callbacks)
+       5- check for " setImmediate"
+       6- close callback
+       7- repeat 3:6
+___________________________________________________________________________
+4- 1.call stack : where js keeps track functions that are currently executing
+   2.event queue : contains function that are ready to be executed but waiting
+    for call stack to become available
+   3- event loop : manage which task is running now on the main thread
+___________________________________________________________________________
+5- libuv provides 4 poll threads by defult to do some operations 
+like (Cryptography ,File system,Compression "Zlip") to avoid the main thread blocking
+ - we set thread pool size via power shell  -- $env:UV_THREADPOOL_SIZE=8
+
+___________________________________________________________________________
+6-executing non-blocking code immediatly but operates the blocking code like(fileSystem and Cryptography )
+using thread pools or os i/o facilities
